@@ -36,7 +36,7 @@ singletron.createClient().then(({ client, config }) => {
     console.log('Singletron server started', config)
 
     // Request from client
-    server.on('load', function(data, socket) {
+    server.on('load', (data, socket) => {
 
       console.log('Request for new window', data)
 
