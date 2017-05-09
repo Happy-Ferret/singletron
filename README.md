@@ -12,7 +12,7 @@ Below is an example of how to set up the server/clients. Please note that `start
 In `main.js` (main process):
 
 ```js
-const singletron = require('./singletron')
+const singletron = require('singletron')
 
 // Share single instance of Electron
 
@@ -35,6 +35,7 @@ singletron.createClient().then(({ client, config }) => {
 
     console.log('Singletron server started', config)
 
+    // Request from client
     server.on('load', function(data, socket) {
 
       console.log('Request for new window', data)
@@ -62,18 +63,16 @@ options = {
 }
 ```
 
-Returns a promise that resolves if it connected to an existing server.
+Returns a promise that resolves if connected to an existing server.
 
-When connected, the handler will receive an object with two properties:
+On success, the `then()` handler will receive an object with two properties:
 
 - `client` is an instance of `node-ipc`.
   - `client.emit( eventName, data )`
   - `client.on( eventName, (data, socket) => {} )`
-- `config` is an object that the server sent upon handshake
+- `config` is an object that the server sent
   - `id` - server ID
-  - `versions.node`
-  - `versions.chrome`
-  - `versions.electron`
+  - `versions` - `{ node, chrome, electron }`
 
 It's up to the app how to negotiate with the server. In the example above, the client requests to open a new window with its `index.html`, then quits when it's loaded.
 
@@ -89,7 +88,7 @@ options = {
 
 Returns a promise that resolves if server was created successfully.
 
-On success, the handler will receive an object with two properties:
+On success, the `then()` handler will receive an object with two properties:
 
 - `server` is an instance of `node-ipc`.
   - `server.emit( [ socket, ] eventName, data )`
