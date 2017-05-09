@@ -12,7 +12,7 @@ module.exports = function createServer(options = {}) {
       ipc.config.maxRetries = 0
       ipc.config.silent = true
 
-      ipc.serve(function() {
+      ipc.serve(() => {
 
         const server = ipc.server
 
@@ -26,7 +26,7 @@ module.exports = function createServer(options = {}) {
           }
         }
 
-        server.on('handshakeRequest', function(data, socket) {
+        server.on('handshakeRequest', (data, socket) => {
           server.emit(socket, 'handshakeResponse', config)
         })
 

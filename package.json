@@ -1,6 +1,6 @@
 {
   "name": "singletron",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Inter-process communication hub for Electron apps",
   "main": "index.js",
   "scripts": {

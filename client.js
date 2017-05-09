@@ -11,24 +11,22 @@ module.exports = function createClient(options = {}) {
     ipc.config.maxRetries = 0
     ipc.config.silent = true
 
-    ipc.connectTo(serverId, function() {
+    ipc.connectTo(serverId, () => {
 
       const client = ipc.of[serverId]
 
-      client.on('connect', function(){
+      client.on('connect', () => {
         client.emit('handshakeRequest', {
           id: ipc.config.id,
           pid: process.pid
         })
       })
 
-      client.on('handshakeResponse', function(config, socket) {
+      client.on('handshakeResponse', (config, socket) => {
         resolve({ client, config })
       })
 
-      client.on('disconnect', function(){
-        reject()
-      })
+      client.on('disconnect', reject)
     })
   })
 }
