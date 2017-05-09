@@ -68,8 +68,8 @@ Returns a promise that resolves if connected to an existing server.
 On success, the `then()` handler will receive an object with two properties:
 
 - `client` is an instance of `node-ipc`.
-  - `client.emit( eventName, data )`
-  - `client.on( eventName, (data, socket) => {} )`
+  - `client.emit( eventName, data )` - Send a message to server
+  - `client.on( eventName, (data, socket) => {} )` - Listen to message from server
 - `config` is an object that the server sent
   - `id` - server ID
   - `versions` - `{ node, chrome, electron }`
@@ -91,8 +91,8 @@ Returns a promise that resolves if server was created successfully.
 On success, the `then()` handler will receive an object with two properties:
 
 - `server` is an instance of `node-ipc`.
-  - `server.emit( [ socket, ] eventName, data )`
-  - `server.on( eventName, (data, socket) => {} )`
+  - `server.emit( socket, eventName, data )` - Send a message to client specified by `socket`
+  - `server.on( eventName, (data, socket) => {} )` - Listen to message from client
 - `config` is the same object as described for client above
 
 It's up to the app how to negotiate with the client. In the example above, the server listens for a request to open a new window with given URL.
