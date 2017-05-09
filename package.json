@@ -1,12 +1,13 @@
 {
   "name": "singletron",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Inter-process communication hub for Electron apps",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "repository": "https://github.com/eliot-akira/singletron",
+  "author": "Eliot Akira",
   "license": "MIT",
   "dependencies": {
     "node-ipc": "^9.0.1"
