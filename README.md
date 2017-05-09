@@ -5,7 +5,7 @@ This is a thin wrapper around [`node-ipc`](https://github.com/RIAEvangelist/node
 
 ## Usage
 
-See [singletron-example](https://github.com/eliot-akira/singletron-example), especially the [initialization step](https://github.com/eliot-akira/singletron-example/blob/master/main.js#L62).
+For a working demonstration, see [singletron-example](https://github.com/eliot-akira/singletron-example).
 
 Below is an example of how to set up the server/clients. Please note that `startApp` and `createWindow` are defined earlier in the file.
 
