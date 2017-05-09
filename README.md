@@ -3,6 +3,8 @@
 
 This is a thin wrapper around [`node-ipc`](https://github.com/RIAEvangelist/node-ipc) to simplify inter-process communication among Electron apps. The main aim is to allow apps to share a single instance of Electron, to minimize memory foot-print.
 
+Currently, this is just a proof-of-concept, and not meant for production use. Please refer to [on-going discussion in the Electron repo](https://github.com/electron/electron/issues/673) about sharing a runtime among apps.
+
 ## Usage
 
 For a working demonstration, see [singletron-example](https://github.com/eliot-akira/singletron-example).
